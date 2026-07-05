@@ -2,32 +2,42 @@
 Software for the analysis of the spectral aura of a living organism and conversion to visual frequencies.
 
 ### Setup
+##### Install Dependencies (must be Python 3.11)
+```bash
+# Linux
+sudo apt-get install python3.11 python3.11-pip python3.11-venv
+
+# Windows
+winget install Python.Python.3.11
+```
+
+
 ##### Within the repo directory, create virtual environment and activate
 
 ```bash
 # Linux 
-python3 -m venv venv
+python3.11 -m venv venv
 . venv/bin/activate
 
 # Windows
-python -m venv venv
+py -3.11 -m venv venv
 .\venv\Scripts\activate
 ```
 
-##### Install dependencies
+##### Install python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-##### Run Aura Video Analyer
+##### Execute Aura Video-Analyer
 
 ```bash
 # Linux
-python3 aura-video-analyser.py
+python3.11 aura-video-analyser.py
 
 # Windows
-python aura-video-analyser.py
+py -3.11 aura-video-analyser.py
 ```
 
 ##### Provide device number (you may need to use trial-and-error for this!)
