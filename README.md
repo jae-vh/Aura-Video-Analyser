@@ -20,6 +20,7 @@ python3.11 -m venv venv
 
 # Windows
 py -3.11 -m venv venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 .\venv\Scripts\activate
 ```
 
