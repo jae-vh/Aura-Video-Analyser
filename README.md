@@ -3,6 +3,7 @@ Fundamental software developed by Egon Spengler to aid research into the visuali
 
 ## Setup
 #### 1. Install dependencies (must be Python 3.11)
+
 ```bash
 # Linux
 sudo apt-get install python3.11 python3.11-pip python3.11-venv
@@ -11,7 +12,14 @@ sudo apt-get install python3.11 python3.11-pip python3.11-venv
 winget install Python.Python.3.11
 ```
 
-#### 2. Within the repo directory, create virtual environment and activate
+#### 2. Clone the repo
+
+```bash
+git clone https://github.com/jae-vh/Aura-Video-Analyser
+cd Aura-Video-Analyser
+```
+
+#### 3. Create virtual environment and activate
 
 ```bash
 # Linux 
@@ -24,13 +32,13 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 .\venv\Scripts\activate
 ```
 
-#### 3. Install Python dependencies
+#### 4. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 4. Execute Aura Video-Analyser
+#### 5. Execute Aura Video-Analyser
 
 ```bash
 # Linux
@@ -40,7 +48,7 @@ python3.11 aura-video-analyser.py
 python aura-video-analyser.py
 ```
 
-#### 5. Provide camera device index
+#### 6. Provide camera device index
 
 ```bash
 # Example:
@@ -48,7 +56,7 @@ python aura-video-analyser.py
 Enter camera index:
 1
 ```
-#### 6. To close, click OpenCV window and press 'q'
+#### 7. To close, click OpenCV window and press 'q'
 
 
 ## Acknowledgements
