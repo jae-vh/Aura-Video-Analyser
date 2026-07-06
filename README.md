@@ -1,5 +1,7 @@
 # Aura Video-Analyser
-Fundamental software developed to aid the research into the visualisation and interpretation of the human aura. Developed by Egon Spengler. The Aura Video-Analyser is a machine which interprets the brain's spectra-neuronal, psycho-electrical frequencies, (associated with the variation of luminescense in the aura, as response to changes in the subject's emotional condition) through electrodes adhered to the subject's left and right temples. The psycho-electrical impulses are fed into algorithms which convert to usable data. The machine interprets the data and outputs to video.
+Fundamental software developed to aid the research into the visualisation and interpretation of the human aura and emotional response. Developed by Egon Spengler. The Aura Video-Analyser is a machine which interprets the brain's spectra-neuronal, psycho-electrical frequencies (associated with the variation of luminescense in the aura, as response to changes in the subject's emotional condition), through electrodes adhered to the subject's left and right temples. The raw psycho-electrical impulses are fed into algorithms which convert to usable data. The machine interprets the data and outputs to video.
+
+A real-time video filter which pixelises, recolours, and replaces background. The effect replicates the screen shown in Ghostbusters when Dana is being interviewed.
 
 ### Setup
 ##### Install Dependencies (must be Python 3.11)
