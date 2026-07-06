@@ -43,6 +43,7 @@ python aura-video-analyser.py
 #### 5. Provide camera device index
 
 ```
+# Example:
 {0: 'EasyCamera', 1: 'Webcam C170', 2: 'OBS Virtual Camera'}
 Enter camera index:
 1
