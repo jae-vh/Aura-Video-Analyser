@@ -14,9 +14,7 @@ class VideoAnalyser:
         self.cap = cv2.VideoCapture(video_capture_device)
 
         if not self.cap.isOpened():
-            print("\u001b[1mERROR: Invalid camera device, try a different index.")
-            print("\033[0m")
-            exit(1)
+            raise RuntimeError("\u001b[1mInvalid camera device, try a different index.\033[0m")
 
         # Dana Barret Aura-Rendering
         colormap = mplc.ListedColormap([ 
@@ -40,9 +38,7 @@ class VideoAnalyser:
             ret, frame = self.cap.read()
 
             if(not ret):
-                print("\u001b[1mERROR: Could not get frame.")
-                print("\033[0m")
-                exit(1)
+                raise RuntimeError("\u001b[1mCould not get frame\033[0m")
 
             segmentated_img = self.segmentor.removeBG(frame, (0, 0, 0), cutThreshold=0.9)
 
