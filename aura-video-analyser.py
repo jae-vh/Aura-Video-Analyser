@@ -8,11 +8,10 @@ from pygrabber.dshow_graph import FilterGraph
 
 class VideoAnalyser:
 
-    def __init__(self, videoCaptureDevice):
+    def __init__(self, video_capture_device):
         print("Initialising...")
 
-        # Set-ExecutionPolicy Unrestricted -Scope Process
-        self.cap = cv2.VideoCapture(videoCaptureDevice)
+        self.cap = cv2.VideoCapture(video_capture_device)
 
         if not self.cap.read()[0]:
             print("\u001b[1mERROR: Invalid camera device, try a different index.")
