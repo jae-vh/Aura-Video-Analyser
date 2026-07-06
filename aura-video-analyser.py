@@ -1,11 +1,8 @@
-import sys
-import numpy as np
 import cv2
 import matplotlib as mpl
 import matplotlib.colors as mplc
 import matplotlib.cm as mtpltcm
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
-import mediapipe as mp
 from pygrabber.dshow_graph import FilterGraph
 
 
