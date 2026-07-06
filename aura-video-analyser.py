@@ -1,9 +1,10 @@
+import sys
+
 import cv2
 import matplotlib as mpl
 import matplotlib.colors as mplc
 import matplotlib.cm as mtpltcm
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
-from pygrabber.dshow_graph import FilterGraph
 
 
 class VideoAnalyser:
@@ -73,12 +74,29 @@ class VideoAnalyser:
         cv2.destroyAllWindows()
 
 
-def get_available_cameras():
-    """Returns the index and name of all connected camera devices"""
 
-    devices = FilterGraph().get_input_devices()
+if 'win32' in sys.platform:
+    from pygrabber.dshow_graph import FilterGraph
 
-    return dict(enumerate(devices))
+    def get_available_cameras():
+        """Returns the index and name of all connected camera devices"""
+
+        devices = FilterGraph().get_input_devices()
+        print(dict(enumerate(devices)))
+
+elif 'linux' in sys.platform:
+    def get_available_cameras():
+        """Returns the index and name of all connected camera devices"""
+        import pyudev
+
+        context = pyudev.Context()
+
+        for device in context.list_devices(subsystem="video4linux"):
+            print(device.device_node)
+            print(device.get("ID_V4L_PRODUCT"))
+
+else:
+    raise RuntimeError("\u001b[1mUnsupported operating system.\033[0m")    
 
 
 if __name__ == "__main__":
@@ -89,7 +107,7 @@ All rights reserved
     
     print("\033[92m")
     print(LICENSE)
-    print(get_available_cameras())
+    get_available_cameras()
     
     camera_index = int(input("Enter camera index: "))
     analyser = VideoAnalyser(camera_index)
@@ -100,5 +118,3 @@ All rights reserved
         analyser.close()
 
     print("\033[0m")
-
-
