@@ -13,7 +13,7 @@ class VideoAnalyser:
 
         self.cap = cv2.VideoCapture(video_capture_device)
 
-        if not self.cap.read()[0]:
+        if not self.cap.isOpened():
             print("\u001b[1mERROR: Invalid camera device, try a different index.")
             print("\033[0m")
             exit(1)
