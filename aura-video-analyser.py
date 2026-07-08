@@ -7,6 +7,9 @@ import matplotlib.colors as mplc
 import matplotlib.cm as mtpltcm
 from cvzone.SelfiSegmentationModule import SelfiSegmentation
 
+if 'linux' in sys.platform:
+    from screeninfo import get_monitors
+
 
 class VideoAnalyser:
 
@@ -40,7 +43,17 @@ class VideoAnalyser:
     def render_loop(self):
         """Continuously capture, process, and display aura-rendered video frames."""
 
-        self.x, self.y, self.window_width, self.window_height = cv2.getWindowImageRect("window")
+
+        if 'win32' in sys.platform:
+            self.x, self.y, self.window_width, self.window_height = cv2.getWindowImageRect("window")
+
+        elif 'linux' in sys.platform:
+            monitor = get_monitors()[0]
+            self.window_width = monitor.width
+            self.window_height = monitor.height
+
+
+
 
         ret, frame = self.cap.read()
 
