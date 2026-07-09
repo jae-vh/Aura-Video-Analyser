@@ -65,6 +65,7 @@ Enter camera index:
 ## Notes
 - Software has only been tested on one camera so far, so your mileage may vary!
 - Ensure subject is well-lit (colour mapping depends heavily on lighting)
+- Software was made with the assumption that the video will be displayed on a 4:3 screen
 
 ## Contributing
 
