@@ -20,7 +20,7 @@ else:
 
 
 # Dana Barret Aura-Rendering
-COLORMAP = mplc.ListedColormap([ 
+COLOURMAP = mplc.ListedColormap([ 
         "#ae81d9",
         "#be6450",
         "#35a055",
@@ -48,7 +48,7 @@ class VideoAnalyser:
             raise RuntimeError("\u001b[1mInvalid camera device, try a different number.\033[0m")
         
         c_norm = mpl.colors.Normalize(vmin=0, vmax=255)
-        self.scalar_map = mtpltcm.ScalarMappable(norm=c_norm, cmap=COLORMAP)
+        self.scalar_map = mtpltcm.ScalarMappable(norm=c_norm, cmap=COLOURMAP)
 
         self.segmentor = SelfiSegmentation()
 
@@ -102,10 +102,10 @@ class VideoAnalyser:
 
             segmented_img = self.segmentor.removeBG(frame, (0, 0, 0), cutThreshold=0.9)
 
-            # Our operations on the frame come here
+            # Converts image to grayscale
             gray = cv2.cvtColor(segmented_img, cv2.COLOR_BGR2GRAY)
 
-            # Assign colormap
+            # Maps gray shades to the colour map colours
             colors = self.scalar_map.to_rgba(gray, bytes=False)
 
             small_image = cv2.resize(colors, (120, 120), interpolation=cv2.INTER_LINEAR)
