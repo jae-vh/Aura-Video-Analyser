@@ -127,25 +127,34 @@ if 'win32' in sys.platform:
 
 elif 'linux' in sys.platform:
     def get_available_cameras():
-        """Returns the index and name of all connected camera devices"""
-        import pyudev
+        """Prints the index and name of all connected camera devices"""
 
         context = pyudev.Context()
 
-        for device in context.list_devices(subsystem="video4linux"):
-            print(device.device_node)
-            print(device.get("ID_V4L_PRODUCT"))
+        index = 0
+        previous_device_name = None
 
-else:
-    raise RuntimeError("\u001b[1mUnsupported operating system.\033[0m")    
+        camera_devices = context.list_devices(subsystem="video4linux")
+
+        for device in camera_devices:
+            device_name = device.get("ID_MODEL")
+
+            # Ensures the same device isn't printed twice (due to meta files)            
+            if device_name == previous_device_name:
+                continue
+
+            previous_device_name = device_name
+
+            print(f"{index}: {device_name}")
+
+            index += 1
+        
+        if index == 0:
+            raise RuntimeError("\u001b[1mNo camera devices found\033[0m")
 
 
-if __name__ == "__main__":
-    LICENSE = """Aura Video-Analyser is a registered trademark of Ghostbusters
-(c) Copyright 1984 Ghostbusters
-All rights reserved
-"""
-    
+
+if __name__ == "__main__":    
     print("\033[92m")
     print(LICENSE)
     print("Camera devices: ")
